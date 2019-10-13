@@ -45,7 +45,6 @@ app.get("/api/timestamp/:date_string", function(req, res, next){
   
   if ( /\D/.test(req.params.date_string) ) {
     date = new Date( req.params.date_string);
-
   } else {
     date = new Date( parseInt(req.params.date_string));
   }
