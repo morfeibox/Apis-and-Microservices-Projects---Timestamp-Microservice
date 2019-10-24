@@ -32,9 +32,13 @@ var listener = app.listen(process.env.PORT, function () {
 // Actual project code<
 
 // seed req param whe we get the empty date
-app.get("/api/timestamp", function(req, res) {
-  let newDate = new Date();
-  res.redirect( "/api/timestamp/" + newDate.getFullYear() + "-" + (newDate.getUTCMonth() + 1) + "-" + newDate.getUTCDate() );
+// app.get("/api/timestamp", function(req, res) {
+//   let newDate = new Date();
+//   res.redirect( "/api/timestamp/" + newDate.getFullYear() + "-" + (newDate.getUTCMonth() + 1) + "-" + newDate.getUTCDate() );
+// });
+// Changed to this beacuse not passing the test
+app.get("/api/timestamp/", (req, res) => {
+  res.json({ unix: Date.now(), utc: Date() });
 });
 
 
